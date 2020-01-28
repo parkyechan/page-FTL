@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 
 #define NOB (151552)
 #define PPB (128)
@@ -16,6 +17,8 @@
 #define PAGE_READ 0
 #define PAGE_WRITE 1
 #define BLOCK_ERASE 2
+
+#define parent(x) (x-1)/2
 
 typedef struct flash_block {
 	int32_t min_page;
@@ -62,6 +65,8 @@ static inline void write_collision(int32_t b_idx, int32_t p_idx) {
 	abort();
 }
 
+void HeapSort(int *base, int n);
+void ViewArr(int *arr, int n);
 int32_t box_create();
 int32_t box_destroy();
 int32_t flash_page_write(int32_t b_idx, int32_t p_idx, int32_t value);
